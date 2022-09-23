@@ -7,9 +7,6 @@ jobs:
   build:
     docker:
       - image: cimg/node:14.15.5
-        auth:
-          username: $DOCKER_USERNAME
-          password: $DOCKER_PASSWORD 
     steps:
       - setup_remote_docker:
           version: 20.10.14
