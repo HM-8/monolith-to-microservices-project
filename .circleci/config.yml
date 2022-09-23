@@ -14,7 +14,8 @@ jobs:
       - run:
           name: Build, Tag and Push Docker images to Docker Hub
           command: |
-            docker-compose -f ./docker-compose-build.yaml build --parallel
+            npm install docker-compose
+            docker-compose -f ../docker-compose-build.yaml build --parallel
             docker tag udagram-api-feed hm88/udagram-api-feed:v1
             docker tag udagram-api-user hm88/udagram-api-user:v1
             docker tag udagram-frontend hm88/udagram-frontend:v1
