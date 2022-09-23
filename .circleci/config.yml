@@ -9,7 +9,7 @@ jobs:
       - image: cimg/node:14.15.5
         auth:
           username: $DOCKER_USERNAME
-          password: $DOCKERHUB_PASSWORD 
+          password: $DOCKER_PASSWORD 
     steps:
       - setup_remote_docker:
           version: 20.10.14
@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Build, Tag and Push Docker images to Docker Hub
           command: |
-            docker-compose -f docker-compose-build.yaml build --parallel
+            docker-compose -f ./docker-compose-build.yaml build --parallel
             docker tag udagram-api-feed hm88/udagram-api-feed:v1
             docker tag udagram-api-user hm88/udagram-api-user:v1
             docker tag udagram-frontend hm88/udagram-frontend:v1
