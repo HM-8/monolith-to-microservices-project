@@ -15,13 +15,12 @@ jobs:
       - run:
           name: Build, Tag and Push Docker images to Docker Hub
           command: |
-            echo $DOCKER_PASSWORD && $DOCKER_USERNAME
-            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
             docker-compose -f docker-compose-build.yaml build --parallel
             docker tag udagram-api-feed hm88/udagram-api-feed
             docker tag udagram-api-user hm88/udagram-api-user
             docker tag udagram-frontend hm88/udagram-frontend
             docker tag reverseproxy hm88/reverseproxy
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
             docker push hm88/udagram-api-feed
             docker push hm88/udagram-api-user
             docker push hm88/udagram-frontend
