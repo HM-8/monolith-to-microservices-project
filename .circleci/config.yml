@@ -7,6 +7,9 @@ jobs:
   build:
     docker:
       - image: cimg/node:14.15.5
+    environment:
+      DOCKER_USERNAME: $DOCKER_USERNAME
+      DOCKER_PASSWORD: $DOCKER_PASSWORD
     steps:
       - checkout
       - setup_remote_docker:
@@ -20,8 +23,6 @@ jobs:
             docker tag udagram-api-user hm88/udagram-api-user
             docker tag udagram-frontend hm88/udagram-frontend
             docker tag reverseproxy hm88/reverseproxy
-            echo DOCKER_USERNAME="$DOCKER_USERNAME" >> "${BASH_ENV}"
-            echo DOCKER_PASSWORD="$DOCKER_PASSWORD" >> "${BASH_ENV}"
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
             docker push hm88/udagram-api-feed
             docker push hm88/udagram-api-user
