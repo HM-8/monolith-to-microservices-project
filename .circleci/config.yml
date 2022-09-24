@@ -26,7 +26,7 @@ jobs:
             docker tag udagram-api-user hm88/udagram-api-user
             docker tag udagram-frontend hm88/udagram-frontend
             docker tag reverseproxy hm88/reverseproxy
-            echo $DOCKER_PASSWORD | base64 --decode | docker login -u $DOCKER_USERNAME --password-stdin
+            echo $DOCKER_PASSWORD | base64 --decode | docker login -u hm88 --password-stdin
             docker push hm88/udagram-api-feed
             docker push hm88/udagram-api-user
             docker push hm88/udagram-frontend
