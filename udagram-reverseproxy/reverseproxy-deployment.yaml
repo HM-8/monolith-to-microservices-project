@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: reverseproxy
-          image: hm88/reverseproxy/v1
+          image: hm88/reverseproxy:latest
           ports:
             - containerPort: 80
