@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: udagram-frontend
-          image: hm88/udagram-frontend
+          image: hm88/udagram-frontend/v1
           ports:
             - containerPort: 80
