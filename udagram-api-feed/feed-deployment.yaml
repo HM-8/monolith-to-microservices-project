@@ -18,4 +18,4 @@ spec:
         - name: udagram-api-feed
           image: hm88/udagram-api-feed:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
