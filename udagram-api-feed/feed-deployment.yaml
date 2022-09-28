@@ -18,7 +18,7 @@ spec:
         - name: udagram-api-feed
           image: hm88/udagram-api-feed:latest
           ports:
-            - containerPort: 8080
+          - containerPort: 8080
           imagePullPolicy: Always
           resources:
             requests:
@@ -82,3 +82,7 @@ spec:
           secret:
             secretName: aws-secret
             optional: false
+
+
+
+                
