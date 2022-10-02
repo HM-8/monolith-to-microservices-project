@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reverseproxy
-          image: hm88/reverseproxy:v2
+          image: hm88/reverseproxy:latest
           ports:
             - containerPort: 8080
               protocol: TCP
