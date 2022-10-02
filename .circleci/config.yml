@@ -22,12 +22,12 @@ jobs:
           name: Build, Tag and Push Docker images to Docker Hub
           command: |
             docker-compose -f docker-compose-build.yaml build --parallel
-            docker tag udagram-api-feed hm88/udagram-api-feed
-            docker tag udagram-api-user hm88/udagram-api-user
-            docker tag udagram-frontend hm88/udagram-frontend
-            docker tag reverseproxy hm88/reverseproxy
+            docker tag udagram-api-feed hm88/udagram-api-feed:latest
+            docker tag udagram-api-user hm88/udagram-api-user:latest
+            docker tag udagram-frontend hm88/udagram-frontend:v6
+            docker tag reverseproxy hm88/reverseproxy:latest
             echo $DOCKER_PASSWORD | docker login -u hm88 --password-stdin
-            docker push hm88/udagram-api-feed
-            docker push hm88/udagram-api-user
-            docker push hm88/udagram-frontend
-            docker push hm88/reverseproxy
+            docker push hm88/udagram-api-feed:latest
+            docker push hm88/udagram-api-user:latest
+            docker push hm88/udagram-frontend:v6
+            docker push hm88/reverseproxy:latest
