@@ -17,6 +17,7 @@ npm-debug.log*
 *env-configmap.yaml
 *deploy.sh
 *delete-deploy.sh
+*new-docker-image.sh
 
 .idea/
 .ionic/
