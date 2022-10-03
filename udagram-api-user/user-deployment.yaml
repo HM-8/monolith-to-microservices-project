@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: udagram-api-user
-          image: hm88/udagram-api-user:latest
+          image: hm88/udagram-api-user:v3
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
