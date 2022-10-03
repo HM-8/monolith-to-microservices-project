@@ -1,0 +1,33 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+
+workflows:
+  build:
+    jobs:
+      - build:
+          context: udagram
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:14.15.5
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 20.10.14
+          docker_layer_caching: true
+      - run:
+          name: Build, Tag and Push Docker images to Docker Hub
+          command: |
+            docker-compose -f docker-compose-build.yaml build --parallel
+            docker tag udagram-api-feed hm88/udagram-api-feed:latest
+            docker tag udagram-api-user hm88/udagram-api-user:v3
+            docker tag udagram-frontend hm88/udagram-frontend:v9
+            docker tag reverseproxy hm88/reverseproxy:latest
+            echo $DOCKER_PASSWORD | docker login -u hm88 --password-stdin
+            docker push hm88/udagram-api-feed:latest
+            docker push hm88/udagram-api-user:v3
+            docker push hm88/udagram-frontend:v9
+            docker push hm88/reverseproxy:latest
